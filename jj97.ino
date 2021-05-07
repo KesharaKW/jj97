@@ -75,10 +75,6 @@ void loop() {
     int x1 = cm;
     if (x1 > 20) {
       turnRF();
-      /*digitalWrite(8, LOW);
-      digitalWrite(9, HIGH);
-      digitalWrite(10, LOW);
-      digitalWrite(11, LOW);*/
       delay(1000);
       forwardm();
       
