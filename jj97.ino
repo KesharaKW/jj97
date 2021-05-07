@@ -76,11 +76,44 @@ void loop() {
     if (x1 > 20) {
       turnRF();
       delay(1000);
+      Servo1.write(90);
       forwardm();
       
     }
     else {
       stopm();
+      delay(1000);
+      backwardm();
+      delay(500);
+      stopm();
+
+      Servo1.write(150);
+
+      digitalWrite(trig, LOW);
+      delayMicroseconds(2);
+      digitalWrite(trig, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(trig, LOW);
+      long t = pulseIn(echo, HIGH);
+      long inches = t / 74 / 2;
+      long cm = t / 29 / 2;
+      Serial.print(inches);
+      Serial.print("in2 \t");
+      Serial.print(cm);
+      Serial.println("cm2 \t");
+      delay(100);
+
+      int x2 = cm;
+      if (x2 > 20){
+        turnLF();
+        delay(1000);
+        Servo1.write(90);
+        forwardm();
+
+      }
+      else {
+        stopm();
+      }
     }
   }
 
